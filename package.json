@@ -1,0 +1,22 @@
+{
+  "name": "blocify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanhcode/blocify.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juanhcode/blocify/issues"
+  },
+  "homepage": "https://github.com/juanhcode/blocify#readme",
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+}
