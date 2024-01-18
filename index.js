@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import select from '@inquirer/select';
+import input from '@inquirer/input';
 import generateArchitecture from './generateArchitecture.js';
 
 const answer = await select({
@@ -26,7 +27,9 @@ const answer = await select({
 
 switch (answer) {
     case 1:
-        await generateArchitecture()
+        await generateArchitecture();
+        const answer = await input({ message: 'Name: ' });
+        const answer2 = await input({ message: 'Path: ' });
         break;
     default:
         break;
