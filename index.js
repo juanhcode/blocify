@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import select from '@inquirer/select';
-
+import generateArchitecture from './generateArchitecture.js';
 
 const answer = await select({
     message: 'Generate modules for',
@@ -24,4 +24,11 @@ const answer = await select({
     ],
 });
 
+switch (answer) {
+    case 1:
+        await generateArchitecture()
+        break;
+    default:
+        break;
+}
 
