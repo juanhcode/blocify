@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import select from '@inquirer/select';
-import input from '@inquirer/input';
-import generateArchitecture from './generateArchitecture.js';
+import {form,generateArchitecture} from './generateArchitecture.js';
 
 const answer = await select({
     message: 'Generate modules for',
@@ -28,8 +27,7 @@ const answer = await select({
 switch (answer) {
     case 1:
         await generateArchitecture();
-        const answer = await input({ message: 'Name: ' });
-        const answer2 = await input({ message: 'Path: ' });
+        await form();
         break;
     default:
         break;
