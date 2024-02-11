@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs/promises";
 import { createRoute } from "./createMVCRoutes.js";
+import { createController } from "./createMVCController.js";
 
 const folderNames = ["controllers", "services", "routes"];
 
@@ -27,9 +28,8 @@ const createFolder = async (data) => {
                 }
             })
         );
-
-        // Invocar la función createRoute después de crear las carpetas
         await createRoute(data);
+        await createController(data);
         return;
     }
 
@@ -45,9 +45,8 @@ const createFolder = async (data) => {
             }
         })
     );
-
-    // Invocar la función createRoute después de crear las carpetas
-    await createRoute();
+    await createRoute(data);
+    await createController(data);
 };
 
 export { createFolder };
