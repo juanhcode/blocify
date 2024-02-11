@@ -1,5 +1,6 @@
 import select from '@inquirer/select';
 import input from '@inquirer/input';
+import { createFolder } from './createMVCFolders.js';
 async function generateArchitecture() {
     const menuArchitecture = await select({
         message: 'Choose the architecture',
@@ -21,10 +22,11 @@ async function generateArchitecture() {
 async function form() {
     const name = await createQuestion('Name: ');
     const path = await createQuestion('Path: ');
-    return {
+    const data = {
         name,
         path
     }
+    createFolder(data);
 }
 
 

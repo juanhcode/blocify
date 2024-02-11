@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import select from '@inquirer/select';
 import {form,generateArchitecture} from './generateArchitecture.js';
-import { createFolder } from './createMVCFolders.js';
+
 
 const answer = await select({
     message: 'Generate modules for',
@@ -27,9 +27,17 @@ const answer = await select({
 
 switch (answer) {
     case 1:
-        await generateArchitecture();
-        await form();
-        await createFolder();
+        const option =  await generateArchitecture();
+        console.log(option);
+        switch(option){
+            case 1:
+                await form();
+                break;
+            case 4:
+                
+
+        }
+
         break;
     default:
         break;
