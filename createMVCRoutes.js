@@ -3,13 +3,13 @@ import path from "path";
 
 const contentRoute = `// Hola, soy la monda parada`;
 
-const createRoute = async () => {
+const createRoute = async (data) => {
   const currentDirectory = process.cwd();
   const srcFolderPath = path.join(currentDirectory, "src");
   const routesFolderPath = path.join(currentDirectory, "routes");
   const routesFolderPath2 = path.join(srcFolderPath, "routes");
-  const routeFilePath = path.join(routesFolderPath, "route.js");
-  const routeFilePath2 = path.join(routesFolderPath2, "route.js");
+  const routeFilePath = path.join(routesFolderPath, `${data?.name}.route.js`);
+  const routeFilePath2 = path.join(routesFolderPath2, `${data?.name}.route.js`);
 
   console.log("routesFolderPath:", routesFolderPath);
   console.log("routeFilePath:", routeFilePath);

@@ -27,9 +27,17 @@ const answer = await select({
 
 switch (answer) {
     case 1:
-        await generateArchitecture();
-        await form();
-        await createFolder();
+        const option =  await generateArchitecture();
+        console.log(option);
+        switch(option){
+            case 1:
+                await form();
+                break;
+            case 4:
+                
+
+        }
+
         break;
     default:
         break;
