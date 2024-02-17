@@ -10,8 +10,8 @@ const createController = async (data) => {
         switch (httpMethod) {
           case "post":
             return `
-            // create
-            const create${data.name}Controller = (req, res) => {
+            // post
+            const post${data.name}Controller = (req, res) => {
 
             };`;
           case "get":
@@ -47,7 +47,20 @@ const createController = async (data) => {
       .join("\n");
   };
 
-  const contentController = generateControllerContent();
+  const generateExportStatement = () => {
+    const exportType = data.type === "commonjs" ? "module.exports" : "export";
+    const exportedControllers = httpMethods.map(
+      (httpMethod) => `${httpMethod}${data.name}Controller`
+    );
+
+    if (data.type === "commonjs") {
+      return `${exportType} = { ${exportedControllers.join(", ")} };`;
+    } else {
+      return `${exportType} { ${exportedControllers.join(", ")} };`;
+    }
+  };
+
+  const contentController = `${generateControllerContent()}\n\n${generateExportStatement()}`;
 
   const currentDirectory = process.cwd();
   const srcFolderPath = path.join(currentDirectory, "src");
