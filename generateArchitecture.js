@@ -34,19 +34,36 @@ const chooseHttp = async ()=> {
       return answer;
     
 }
-
+const chooseType = async ()=> {
+    const answer = await select({
+        message: 'Choose configuration on your project',
+        choices: [
+            {
+                name: 'module',
+                value: 'module',
+            },
+            {
+                name: 'commonjs',
+                value: 'commonjs',
+            },
+        ],
+    });
+    return answer;
+    
+}
 
 async function form() {
+    const type = await chooseType();
     const name = await createQuestion('Name: ');
     const path = await createQuestion('Path: ');
     const verbHttp = await chooseHttp();
     const data = {
+        type,
         name,
         path,
         method:verbHttp
     }
-    console.log(data);
-    //createFolder(data);
+    createFolder(data);
 }
 
 
