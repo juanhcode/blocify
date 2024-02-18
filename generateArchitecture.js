@@ -27,7 +27,7 @@ const chooseHttp = async ()=> {
           { name: 'GET', value: 'get' },
           { name: 'POST', value: 'post' },
           { name: 'DELETE', value: 'delete' },
-          { name: 'UPDATE', value: 'update' },
+          { name: 'PUT', value: 'put' },
           { name: 'PATCH', value: 'patch' },
         ],
       });
@@ -36,7 +36,7 @@ const chooseHttp = async ()=> {
 }
 const chooseType = async ()=> {
     const answer = await select({
-        message: 'Choose configuration on your project',
+        message: 'Choose your project settings',
         choices: [
             {
                 name: 'module',
