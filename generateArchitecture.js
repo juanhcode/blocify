@@ -19,24 +19,24 @@ async function generateArchitecture() {
     return menuArchitecture;
 }
 
-const chooseHttp = async ()=> {
+const chooseHttp = async () => {
     const answer = await checkbox({
         message: 'Choose the HTTP method',
-        required:true,
+        required: true,
         choices: [
-          { name: 'GET', value: 'get' },
-          { name: 'POST', value: 'post' },
-          { name: 'DELETE', value: 'delete' },
-          { name: 'UPDATE', value: 'update' },
-          { name: 'PATCH', value: 'patch' },
+            { name: 'GET', value: 'get' },
+            { name: 'POST', value: 'post' },
+            { name: 'DELETE', value: 'delete' },
+            { name: 'PUT', value: 'put' },
+            { name: 'PATCH', value: 'patch' },
         ],
-      });
-      return answer;
-    
+    });
+    return answer;
+
 }
-const chooseType = async ()=> {
+const chooseType = async () => {
     const answer = await select({
-        message: 'Choose configuration on your project',
+        message: 'Choose your project settings',
         choices: [
             {
                 name: 'module',
@@ -49,7 +49,7 @@ const chooseType = async ()=> {
         ],
     });
     return answer;
-    
+
 }
 
 async function form() {
@@ -61,15 +61,15 @@ async function form() {
         type,
         name,
         path,
-        method:verbHttp
+        method: verbHttp
     }
     createFolder(data);
 }
 
 
-const createQuestion = async (message)=>{
+const createQuestion = async (message) => {
     const answer = await input({ message: message });
     return answer
 }
 
-export {generateArchitecture,form}
+export { generateArchitecture, form }

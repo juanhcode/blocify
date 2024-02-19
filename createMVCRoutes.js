@@ -19,37 +19,37 @@ const createRoute = async (data) => {
     await fs.access(srcFolderPath);
   } catch (err) {
     console.error(
-        "'src' folder does not exist."
-      );
+      "'src' folder does not exist."
+    );
 
+    try {
+      await fs.access(routesFolderPath);
+    } catch (err) {
+      console.error(
+        "'routes' folder does not exist. Please create the 'routes' folder first."
+      );
+      return;
+    }
+
+    try {
+      await fs.access(v1FolderPath);
+    } catch (err) {
+      console.log("Creating 'v1' folder...");
       try {
-        await fs.access(routesFolderPath);
+        await fs.mkdir(v1FolderPath,);
+        console.log(`Successfully created folder: "${v1FolderPath}"`);
       } catch (err) {
-        console.error(
-          "'routes' folder does not exist. Please create the 'routes' folder first."
-        );
+        console.error(`Error creating folder ${v1FolderPath}: ${err}`);
         return;
       }
+    }
 
-      try {
-        await fs.access(v1FolderPath);
-      } catch (err) {
-        console.log("Creating 'v1' folder...");
-        try {
-          await fs.mkdir(v1FolderPath,); 
-          console.log(`Successfully created folder: "${v1FolderPath}"`);
-        } catch (err) {
-          console.error(`Error creating folder ${v1FolderPath}: ${err}`);
-          return;
-        }
-      }
-    
-      try {
-        await fs.writeFile(routeFilePath, contentRoute);
-        console.log(`Successfully created file: "${routeFilePath}"`);
-      } catch (err) {
-        console.error(`Error writing file ${routeFilePath}: ${err}`);
-      }
+    try {
+      await fs.writeFile(routeFilePath, contentRoute);
+      console.log(`Successfully created file: "${routeFilePath}"`);
+    } catch (err) {
+      console.error(`Error writing file ${routeFilePath}: ${err}`);
+    }
   }
 
   try {
@@ -66,7 +66,7 @@ const createRoute = async (data) => {
   } catch (err) {
     console.log("Creating 'v1' folder...");
     try {
-      await fs.mkdir(v1FolderPath2,); 
+      await fs.mkdir(v1FolderPath2,);
       console.log(`Successfully created folder: "${v1FolderPath2}"`);
     } catch (err) {
       console.error(`Error creating folder ${v1FolderPath2}: ${err}`);
