@@ -9,37 +9,33 @@ const createController = async (data) => {
       .map((httpMethod) => {
         switch (httpMethod) {
           case "post":
-            return `
-            // post
-            const post${data.name}Controller = (req, res) => {
+            return `// post
+const post${data.name}Controller = (req, res) => {
 
-            };`;
+};\n`.trim();
           case "get":
             return `// get
-            const get${data.name}Controller = (req, res) => {
+const get${data.name}Controller = (req, res) => {
 
-            };`;
+};\n`.trim();
 
           case "delete":
-            return `
-            // delete
-            const delete${data.name}Controller = (req, res) => {
+            return `// delete
+const delete${data.name}Controller = (req, res) => {
 
-            };`;
+};\n`.trim();
 
           case "update":
-            return `
-            // update
-            const update${data.name}Controller = (req, res) => {
+            return `// update
+const update${data.name}Controller = (req, res) => {
 
-            };`;
+};\n`.trim();
 
           case "patch":
-            return `
-            // update
-            const patch${data.name}Controller = (req, res) => {
+            return `// update
+const patch${data.name}Controller = (req, res) => {
 
-            };`;
+};\n`.trim();
           default:
             return "";
         }
