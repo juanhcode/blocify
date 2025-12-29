@@ -2,6 +2,16 @@
 name = "blocify"
 version = "0.1.0"
 edition = "2024"
+description = "CLI tool to scaffold microfrontends in a monorepo"
+license = "MIT"
+authors = [
+    "Juan Hoyos <juanhoyos1347@gmail.com>",
+    "Gregory Gonzalez <gregory.gonzalez@correounivalle.edu.co>"
+]
+repository = "https://github.com/juanhoyos/blocify"
+readme = "README.md"
+keywords = ["cli", "microfrontend", "scaffold", "monorepo"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 clap = { version = "*", features = ["derive"] }
